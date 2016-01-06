@@ -1,0 +1,28 @@
+{
+  "name": "fish-game",
+  "version": "1.0.0",
+  "description": "a tiny game practice",
+  "main": "app.js",
+  "dependencies": {
+    "consolidate": "^0.13.1",
+    "express": "^4.13.3",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinyting/fishGame.git"
+  },
+  "keywords": [
+    "canvas"
+  ],
+  "author": "shinyting",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shinyting/fishGame/issues"
+  },
+  "homepage": "https://github.com/shinyting/fishGame#readme"
+}
