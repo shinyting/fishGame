@@ -11,6 +11,7 @@ var lastTime;
 var deltaTime;
 
 var bgPic = new Image();
+var ane;
 
 //body加载完成之后执行game函数
 document.body.onload = game;
@@ -33,8 +34,11 @@ function init () {
 
 	bgPic.src = "../images/background.jpg";
 
-	canWidth = can1.width;
-	canHeight = can1.height;
+	canWidth = can1.clientWidth;
+	canHeight = can1.clientHeight;
+
+	ane = new aneObj();
+	ane.init();
 }
 
 function gameloop () {
@@ -45,4 +49,6 @@ function gameloop () {
 	lastTime = now;
 
 	drawBackground();
+
+	ane.draw();
 }
