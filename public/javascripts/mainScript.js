@@ -12,6 +12,7 @@ var deltaTime;
 
 var bgPic = new Image();
 var ane;
+var fruit;
 
 //body加载完成之后执行game函数
 document.body.onload = game;
@@ -39,6 +40,9 @@ function init () {
 
 	ane = new aneObj();
 	ane.init();
+
+	fruit = new fruitObj();
+	fruit.init();
 }
 
 function gameloop () {
@@ -49,6 +53,6 @@ function gameloop () {
 	lastTime = now;
 
 	drawBackground();
-
 	ane.draw();
+	fruit.draw();
 }

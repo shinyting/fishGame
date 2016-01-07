@@ -1,3 +1,4 @@
+//定义海葵类
 var aneObj = function () {
 	this.x = [];
 	this.len = [];
