@@ -3,17 +3,17 @@ var aneObj = function () {
 	this.x = [];
 	this.len = [];
 }
-aneObj.prototype.num = 50;
+aneObj.prototype.num = 200;
 aneObj.prototype.init = function () {
 	for (var i = 0; i < this.num; i++) {
-		this.x[i] = i * 8 + Math.random() * 20;
-		this.len[i] = 180 + Math.random() * 50;
+		this.x[i] = i * 5 + Math.random() * 10;
+		this.len[i] = 150 + Math.random() * 50;
 	}
 }
 aneObj.prototype.draw = function () {
 	ctx2.save();
 	ctx2.globalAlpha = 0.6;
-	ctx2.lineWidth = 10;
+	ctx2.lineWidth = 8;
 	ctx2.lineCap = "round";
 	ctx2.strokeStyle = "#3b154e";
 	for (var i = 0; i < this.num; i++) {
