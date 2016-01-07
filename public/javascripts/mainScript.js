@@ -73,6 +73,8 @@ function gameloop () {
 
 	ctx1.clearRect(0, 0, canWidth, canHeight);
 	mom.draw();
+
+	momFruitsCollision();
 }
 
 function onMouseMove (e) {

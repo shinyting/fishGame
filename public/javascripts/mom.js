@@ -33,8 +33,8 @@ momObj.prototype.draw = function () {
 	ctx1.save();
 	ctx1.translate(this.x, this.y);
 	ctx1.rotate(this.angle);
-	ctx1.drawImage(this.bigEye, -this.bigEye.width/2, -this.bigEye.height/2);
-	ctx1.drawImage(this.bigBody, -this.bigBody.width/2, -this.bigBody.height/2);
-	ctx1.drawImage(this.bigTail, -this.bigTail.width/2 + 28, -this.bigTail.height/2);
+	ctx1.drawImage(this.bigEye, -this.bigEye.width/4, -this.bigEye.height/4, this.bigEye.width/2, this.bigEye.height/2);
+	ctx1.drawImage(this.bigBody, -this.bigBody.width/4, -this.bigBody.height/4, this.bigBody.width/2, this.bigBody.height/2);
+	ctx1.drawImage(this.bigTail, -this.bigTail.width/4 + 14, -this.bigTail.height/4, this.bigTail.width/2, this.bigTail.height/2);
 	ctx1.restore();
 }
