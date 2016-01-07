@@ -14,6 +14,7 @@ var bgPic = new Image();
 var ane;
 var fruit;
 var mom;
+var baby;
 
 var mx;
 var my;
@@ -53,6 +54,9 @@ function init () {
 	mom = new momObj();
 	mom.init();
 
+	baby = new babyObj();
+	baby.init();
+
 	mx = canWidth/6;
 	my = canHeight/10;
 }
@@ -73,6 +77,8 @@ function gameloop () {
 
 	ctx1.clearRect(0, 0, canWidth, canHeight);
 	mom.draw();
+
+	baby.draw();
 
 	momFruitsCollision();
 }
