@@ -13,6 +13,10 @@ var deltaTime;
 var bgPic = new Image();
 var ane;
 var fruit;
+var mom;
+
+var mx;
+var my;
 
 //body加载完成之后执行game函数
 document.body.onload = game;
@@ -33,6 +37,8 @@ function init () {
 	can2 = document.getElementById("canvas2");
 	ctx2 = can2.getContext("2d");
 
+	can1.addEventListener("mousemove", onMouseMove, false);
+
 	bgPic.src = "../images/background.jpg";
 
 	canWidth = can1.clientWidth;
@@ -43,6 +49,12 @@ function init () {
 
 	fruit = new fruitObj();
 	fruit.init();
+
+	mom = new momObj();
+	mom.init();
+
+	mx = canWidth/6;
+	my = canHeight/10;
 }
 
 function gameloop () {
@@ -53,7 +65,19 @@ function gameloop () {
 	lastTime = now;
 
 	drawBackground();
+
 	ane.draw();
+
 	fruitMonitor();
 	fruit.draw();
+
+	ctx1.clearRect(0, 0, canWidth, canHeight);
+	mom.draw();
+}
+
+function onMouseMove (e) {
+	if (e.offSetX || e.layerX) {
+		mx = e.offsetX == undefined ? e.layerX : e.offsetX/2;
+		my = e.offsetY == undefined ? e.layerY : e.offsetY/4;
+	}
 }
