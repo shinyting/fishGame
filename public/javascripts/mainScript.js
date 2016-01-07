@@ -15,6 +15,8 @@ var ane;
 var fruit;
 var mom;
 var baby;
+var babyTail = [];
+var babyEye = [];
 
 var mx;
 var my;
@@ -56,6 +58,16 @@ function init () {
 
 	baby = new babyObj();
 	baby.init();
+
+	for (var i = 0; i < 8; i ++) {
+		babyTail[i] = new Image();
+		babyTail[i].src = "../images/babyTail" + i + ".png";
+	}
+
+	for (var i = 0; i < 2; i ++) {
+		babyEye[i] = new Image();
+		babyEye[i].src = "../images/babyEye" + i + ".png";
+	}
 
 	mx = canWidth/6;
 	my = canHeight/10;
