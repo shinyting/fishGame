@@ -15,12 +15,16 @@ var ane;
 var fruit;
 var mom;
 var baby;
+var data;
 
 var babyTail = [];
 var babyEye = [];
 var babyBody = [];
 
 var momTail = [];
+var momEye = [];
+var momBodyOrange = [];
+var momBodyBlue = [];
 
 var mx;
 var my;
@@ -63,6 +67,7 @@ function init () {
 	baby = new babyObj();
 	baby.init();
 
+	//小鱼
 	for (var i = 0; i < 8; i ++) {
 		babyTail[i] = new Image();
 		babyTail[i].src = "../images/babyTail" + i + ".png";
@@ -78,13 +83,28 @@ function init () {
 		babyBody[i].src = "../images/babyFade" + i + ".png";
 	}
 
+	//大鱼
 	for (var i = 0; i < 8; i ++) {
 		momTail[i] = new Image();
 		momTail[i].src = "../images/bigTail" + i + ".png";
 	}
 
+	for (var i = 0; i < 2; i ++) {
+		momEye[i] = new Image();
+		momEye[i].src = "../images/bigEye" + i + ".png";
+	}
+
+	for (var i = 0; i < 8; i ++) {
+		momBodyOrange[i] = new Image();
+		momBodyBlue[i] = new Image();
+		momBodyOrange[i].src = "../images/bigSwim" + i + ".png";
+		momBodyBlue[i].src = "../images/bigSwimBlue" + i + ".png";
+	}
+
 	mx = canWidth/6;
-	my = canHeight/10;
+	my = canHeight/10; 
+
+	data = new dataObj();
 }
 
 function gameloop () {
@@ -108,6 +128,8 @@ function gameloop () {
 
 	momFruitsCollision();
 	momBabyCollision();
+
+	data.draw();
 }
 
 function onMouseMove (e) {

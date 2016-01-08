@@ -21,9 +21,6 @@ babyObj.prototype.init = function () {
 	this.angle = 0;
 	this.x = canWidth/6 - 50;
 	this.y = canHeight/10 + 50;
-	this.babyEye.src = "../images/babyEye0.png";
-	this.babyBody.src = "../images/babyFade0.png";
-	// this.babyTail.src = "../images/babyTail0.png";
 }
 
 babyObj.prototype.draw = function () {
