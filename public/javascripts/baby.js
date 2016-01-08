@@ -12,6 +12,9 @@ var babyObj = function () {
 	this.babyEyeTimer = 0;
 	this.babyEyeCount = 0;
 	this.babyEyeInterval = 1000;
+
+	this.babyBodyTimer = 0;
+	this.babyBodyCount = 0;
 }
 
 babyObj.prototype.init = function () {
@@ -55,6 +58,17 @@ babyObj.prototype.draw = function () {
 		}
 	}
 
+	//baby body
+	this.babyBodyTimer += deltaTime;
+	if (this.babyBodyTimer > 300) {
+		this.babyBodyCount = (this.babyBodyCount + 1);
+		this.babyBodyTimer %= 300;
+		if (this.babyBodyCount > 19) {
+			this.babyBodyCount = 19;
+			//game over
+		}
+	}
+
 	ctx1.save();
 	//设置原点
 	ctx1.translate(this.x, this.y);
@@ -63,7 +77,9 @@ babyObj.prototype.draw = function () {
 	var babyTailCount = this.babyTailCount;
 	var babyTailPic = babyTail[babyTailCount];
 	ctx1.drawImage(babyTailPic, -babyTailPic.width/4 + 12, -babyTailPic.height/4, babyTailPic.width/2, babyTailPic.height/2);
-	ctx1.drawImage(this.babyBody, -this.babyBody.width/4, -this.babyBody.height/4, this.babyBody.width/2, this.babyBody.height/2);
+	var babyBodyCount = this.babyBodyCount;
+	var babyBodyPic = babyBody[babyBodyCount];
+	ctx1.drawImage(babyBodyPic, -babyBodyPic.width/4, -babyBodyPic.height/4, babyBodyPic.width/2, babyBodyPic.height/2);
 	var babyEyeCount = this.babyEyeCount;
 	var babyEyePic = babyEye[babyEyeCount];
 	ctx1.drawImage(babyEyePic, -babyEyePic.width/4, -babyEyePic.height/4, babyEyePic.width/2, babyEyePic.height/2);

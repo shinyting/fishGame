@@ -15,8 +15,12 @@ var ane;
 var fruit;
 var mom;
 var baby;
+
 var babyTail = [];
 var babyEye = [];
+var babyBody = [];
+
+var momTail = [];
 
 var mx;
 var my;
@@ -69,6 +73,16 @@ function init () {
 		babyEye[i].src = "../images/babyEye" + i + ".png";
 	}
 
+	for (var i = 0; i < 20; i ++) {
+		babyBody[i] = new Image();
+		babyBody[i].src = "../images/babyFade" + i + ".png";
+	}
+
+	for (var i = 0; i < 8; i ++) {
+		momTail[i] = new Image();
+		momTail[i].src = "../images/bigTail" + i + ".png";
+	}
+
 	mx = canWidth/6;
 	my = canHeight/10;
 }
@@ -93,6 +107,7 @@ function gameloop () {
 	baby.draw();
 
 	momFruitsCollision();
+	momBabyCollision();
 }
 
 function onMouseMove (e) {
