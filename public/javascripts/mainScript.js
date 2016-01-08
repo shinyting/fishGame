@@ -16,6 +16,9 @@ var fruit;
 var mom;
 var baby;
 var data;
+var wave;
+var halo;
+var dust;
 
 var babyTail = [];
 var babyEye = [];
@@ -25,6 +28,7 @@ var momTail = [];
 var momEye = [];
 var momBodyOrange = [];
 var momBodyBlue = [];
+var dustPic = [];
 
 var mx;
 var my;
@@ -107,8 +111,21 @@ function init () {
 	data = new dataObj();
 
 	ctx1.fillStyle = "#fff";
-	ctx1.font = "20px Aria";
+	ctx1.font = "16px Aria";
 	ctx1.textAlign = "center";
+
+	wave = new waveObj();
+	wave.init();
+
+	halo = new haloObj();
+	halo.init();
+
+	dust = new dustObj();
+	dust.init();
+	for (var i = 0; i < 7; i ++) {
+		dustPic[i] = new Image();
+		dustPic[i].src = "../images/dust" + i + ".png";
+	}
 }
 
 function gameloop () {
@@ -134,6 +151,12 @@ function gameloop () {
 	momBabyCollision();
 
 	data.draw();
+
+	wave.draw();
+
+	halo.draw();
+
+	dust.draw();
 }
 
 function onMouseMove (e) {

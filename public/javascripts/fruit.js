@@ -3,6 +3,7 @@ var fruitObj = function () {
 	this.alive = [];
 	this.x = [];
 	this.y = [];
+	this.aneNO = [];
 	this.l = [];
 	this.spd = [];
 	this.fruitType = [];
@@ -17,6 +18,7 @@ fruitObj.prototype.init = function () {
 		this.alive[i] = true;
 		this.x[i] = 0;
 		this.y[i] = 0;
+		this.aneNO[i] = 0;
 		this.spd[i] = Math.random() * 0.005 + 0.003;
 		this.fruitType[i] = "";
 		this.born(i);
@@ -35,13 +37,18 @@ fruitObj.prototype.draw = function () {
 			else {
 				pic = this.orange;
 			}
-			if (this.l[i] <= 10) {
+			if (this.l[i] <= 10) {//果实的半径grow
+				var NO = this.aneNO[i];
+				this.x[i] = ane.headx[NO];
+				this.y[i] = ane.heady[NO];
 				this.l[i] += this.spd[i] * deltaTime;
+				ctx2.drawImage(pic, this.x[i] - this.l[i]/2, this.y[i] - this.l[i]/2, this.l[i]/2, this.l[i]/2);
 			}
 			else {
 				this.y[i] -= this.spd[i] * 7 * deltaTime;
+				ctx2.drawImage(pic, this.x[i] - this.l[i]/2, this.y[i] - this.l[i]/2, this.l[i]/2, this.l[i]/2);
 			}
-			ctx2.drawImage(pic, this.x[i] - this.l[i]/2, this.y[i] - this.l[i]/2, this.l[i], this.l[i]);
+			
 			if (this.y[i] < 2) {
 				this.alive[i] = false;
 			}
@@ -50,9 +57,8 @@ fruitObj.prototype.draw = function () {
 }
 
 fruitObj.prototype.born = function (i) {
-	var aneID = Math.floor(Math.random() * ane.num);
-	this.x[i] = ane.x[aneID];
-	this.y[i] = canHeight/2 - ane.len[aneID];
+	// var aneID = 
+	this.aneNO[i] = Math.floor(Math.random() * ane.num);
 	this.l[i] = 0;
 	this.alive[i] = true;
 	var ran = Math.random();
@@ -74,7 +80,7 @@ function fruitMonitor () {
 		if (fruit.alive[i]) {
 			num ++;
 		}
-		if (num < 15) {
+		if (num < 30) {
 			sendFruit();
 			return;
 		}
