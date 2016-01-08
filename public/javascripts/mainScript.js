@@ -105,6 +105,10 @@ function init () {
 	my = canHeight/10; 
 
 	data = new dataObj();
+
+	ctx1.fillStyle = "#fff";
+	ctx1.font = "20px Aria";
+	ctx1.textAlign = "center";
 }
 
 function gameloop () {
@@ -133,8 +137,10 @@ function gameloop () {
 }
 
 function onMouseMove (e) {
-	if (e.offSetX || e.layerX) {
-		mx = e.offsetX == undefined ? e.layerX : e.offsetX/2;
-		my = e.offsetY == undefined ? e.layerY : e.offsetY/4;
+	if (!data.gameOver) {
+		if (e.offSetX || e.layerX) {
+			mx = e.offsetX == undefined ? e.layerX : e.offsetX/2;
+			my = e.offsetY == undefined ? e.layerY : e.offsetY/4;
+		}
 	}
 }

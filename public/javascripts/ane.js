@@ -7,7 +7,8 @@ aneObj.prototype.num = 200;
 aneObj.prototype.init = function () {
 	for (var i = 0; i < this.num; i++) {
 		this.x[i] = i * 5 + Math.random() * 10;
-		this.len[i] = 150 + Math.random() * 50;
+		//Math.random()产生0~1之间的随机数
+		this.len[i] = 150 + Math.random() * 30 + 30;
 	}
 }
 aneObj.prototype.draw = function () {
