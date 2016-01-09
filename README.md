@@ -17,3 +17,18 @@
 4 编写app.js  
 5 创建views文件夹，在views下创建应用首页文件index.html  
 6 创建public文件夹，存放js，css，及image等静态资源
+
+
+###通过这款小游戏学到的
+
+1 JavaScript类的定义和实例化
+
+
+2 canvas绘图里的api
+
+
+3 动画的实现
+
+
+4 拆分组合
+
