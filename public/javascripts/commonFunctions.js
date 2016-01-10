@@ -1,3 +1,7 @@
+//window.requestAnimationFrame()将告知浏览器你马上要开始动画
+//效果了，后者需要在下次动画之前调用相同方法来更新画面
+//这个方法就是传递给该方法的回调函数
+//用法为window.requestAnimationFrame(callback);
 window.requestAnimFrame = (function() {
 	return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
 		function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
@@ -5,12 +9,13 @@ window.requestAnimFrame = (function() {
 		};
 })();
 
-
+//两点之间坐标的差的平方，即两点之间距离的平方
+//Math.pow(a,b) 该方法是求a的b次方
 function calLength2(x1, y1, x2, y2) {
 	return Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2);
 }
 
-
+//随机颜色
 function randomColor() {
 	var col = [0, 1, 2];
 	col[0] = Math.random() * 100 + 155;
@@ -24,7 +29,7 @@ function randomColor() {
 	return "rgba(" + col[0] + "," + col[1] + "," + col[2] + ",";
 }
 
-
+//角度差
 function lerpAngle(a, b, t) {
 	var d = b - a;
 	if (d > Math.PI) d = d - 2 * Math.PI;

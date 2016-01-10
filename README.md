@@ -33,6 +33,7 @@ js定义类的方法：
 
 
 3 动画的实现
+动画是window.requestAnimationFrame()这个方法来实现的  
 
 
 4 拆分组合
